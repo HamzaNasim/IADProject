@@ -88,6 +88,8 @@ router.post('/signup', (req, res) => {
 
                         service: 'SendGrid',
                         auth: {
+                          
+                          //Sendgrid user and password here
                             
                         }
                     });
@@ -298,6 +300,8 @@ router.put('/activated/:tok', (req, res) => {
 
                         service: 'SendGrid',
                         auth: {
+                          
+                            //Sendgrid user and password here
                           
                         }
                     });
