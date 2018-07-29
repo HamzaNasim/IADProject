@@ -1,0 +1,88 @@
+ 
+
+
+
+
+
+
+
+<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+			<div class="panelTitle">
+
+        What's the name of your first project?
+
+      </div>
+      
+      
+      <form class="login100-form validate-form" #PNameForm = "ngForm"  (ngSubmit) = "ProjectName(PNameForm.value)">
+        
+        
+		
+    <br/>
+    
+	<div class=" form-group col-md-12">
+     
+     	 <input class="tex" placeholder="e.g : WorkLoad" #PName = "ngModel"  name="PName" type="text" [(ngModel)] = "ProjName.ProjectName"  required> 
+  
+     <div *ngIf=" PName.invalid  && PName.touched  " class="text text-danger">
+          <div *ngIf="PName.errors.required">Project Name is required..</div>
+        </div>
+    
+      </div>
+
+    <br/>
+
+     <button type="submit" [disabled]="PNameForm.form.invalid" class="myButton">Continue</button>
+
+
+				
+      </form>
+
+     
+  <br/>
+  <br/>
+   <hr>  
+      
+<div>
+<span>
+ 
+    <div class="NuxTip-message"> <i class="zmdi zmdi-info">
+    </i>
+    Use projects to track the tasks needed to achieve your goal.
+    </div>
+</span>
+</div>
+    
+					
+		</div>
+	</div>
+	</div>
+
+
+  
+    <br/>
+    <br/>
+
+
+
+
+
+<footer>
+    <div class="dark-bg section text-center">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 tex-center">
+            <ul class="social-icons social-icons-small m-40px-b sm-m-20px-b">
+                <li><a class="facebook" href="#"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a class="twitter" href="#"><i class="fab fa-twitter"></i></a></li>
+                <li><a class="google" href="#"><i class="fab fa-google-plus-g"></i></a></li>
+                <li><a class="linkedin" href="#"><i class="fab fa-linkedin-in"></i></a></li>
+              </ul>
+            <p class="m-0px footText color-medium-gray letter-spacing-1 font-14">All © Copyright by Work Load. All Rights Reserved.</p>
+          </div><!-- col -->
+        </div> <!-- row -->
+      </div> <!-- container -->
+    </div> <!-- bg-dark -->
+  </footer>

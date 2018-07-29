@@ -1,0 +1,104 @@
+ 
+
+
+
+
+
+
+
+<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+			<div class="panelTitle">
+
+       Who’s on your team?
+
+      </div>
+      
+      
+      <form class="login100-form validate-form" #EmailForm = "ngForm"  (ngSubmit) = "Members(EmailForm.value)">
+        
+        
+    <div class=" form-group col-md-12">
+
+      <div>
+        <i class="zmdi zmdi-account"></i>
+        <input class="tex" placeholder="Teammate's Email" name="email1"  type="text" #email1="ngModel" [(ngModel)]="member.member1">
+   
+      </div>
+    </div>
+
+
+       <div class=" form-group col-md-12">
+        <div>
+      <i class="zmdi zmdi-account"></i>
+        <input class="tex"  placeholder="Teammate's Email" name="email2" type="text" #email2 = "ngModel" [(ngModel)] =  "member.member2" email required> 
+      </div>
+         
+    </div>
+       <div class=" form-group col-md-12">
+         <div>
+      <i class="zmdi zmdi-account"></i>
+        <input class="tex"  placeholder="Teammate's Email" name="email3" type="text"  #email3 = "ngModel" [(ngModel)] =  "member.member3" email required> 
+      </div>
+         
+    </div>
+       <div class=" form-group col-md-12">
+         <div>
+      <i class="zmdi zmdi-account"></i>
+        <input class="tex"  placeholder="Teammate's Email" name="email4" type="text" #email4 = "ngModel" [(ngModel)] =  "member.member4" email  required> 
+      </div>
+         
+    </div>
+
+<button  class="myButton">Continue</button>
+				
+      </form>
+     
+    
+           
+
+  <br/>
+   <hr>  
+      
+<div>
+<span>
+ 
+    <div class="NuxTip-message"> <i class="zmdi zmdi-info">
+    </i>
+    Experience the full value of WorkLoad when your team collaborates together.
+    </div>
+</span>
+</div>
+    
+					
+		</div>
+	</div>
+	</div>
+
+
+  
+    <br/>
+    <br/>
+
+
+
+
+
+<footer>
+    <div class="dark-bg section text-center">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 tex-center">
+            <ul class="social-icons social-icons-small m-40px-b sm-m-20px-b">
+                <li><a class="facebook" href="#"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a class="twitter" href="#"><i class="fab fa-twitter"></i></a></li>
+                <li><a class="google" href="#"><i class="fab fa-google-plus-g"></i></a></li>
+                <li><a class="linkedin" href="#"><i class="fab fa-linkedin-in"></i></a></li>
+              </ul>
+            <p class="m-0px footText color-medium-gray letter-spacing-1 font-14">All © Copyright by Work Load. All Rights Reserved.</p>
+          </div><!-- col -->
+        </div> <!-- row -->
+      </div> <!-- container -->
+    </div> <!-- bg-dark -->
+  </footer>

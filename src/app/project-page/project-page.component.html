@@ -1,0 +1,86 @@
+<div class="limiter">
+  <div class="container-login100">
+    <div class="wrap-login100">
+      <div class="panelTitle">
+
+        Set up your first team
+
+      </div>
+
+
+      <form class="login100-form validate-form" #ProjectForm="ngForm" (ngSubmit)="ProjectDetails(ProjectForm.value)">
+
+
+        <div class=" selec form-group col-md-12">
+        <label class="lab" for="inputState">Which best describes your team?</label>
+        <select id="inputState" class="form-control" name="teamDescription" [(ngModel)] = "Project.TeamDescription">
+       
+          <option [ngValue]="s" selected>Select any one ..</option>
+        <option *ngFor="let c of Description"  [ngValue]="c.name" >{{c.name}}</option>
+      </select>
+        </div>
+
+        <br/>
+
+        <div class=" form-group col-md-12">
+          <label class="lab" for="inputState">What's your team name?</label>
+          <input class="tex" #team = "ngModel"  name="team" type="text" [(ngModel)] = "Project.TeamName"  required>
+         <div *ngIf=" team.invalid  && team.touched  " class="text text-danger">
+          <div *ngIf="team.errors.required">Team name is required..</div>
+        </div>
+        </div>
+        <button type="submit" [disabled]="ProjectForm.form.invalid" class="myButton" >Continue</button>
+
+      </form>
+
+
+      <br/>
+      <br/>
+      <hr>
+
+
+      <div>
+        <span>
+ 
+    <div class="NuxTip-message"> <i class="zmdi zmdi-info">
+    </i>
+    Teams are groups of people in your organization who work together on projects.
+    </div>
+</span>
+      </div>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+<br/>
+<br/>
+
+
+
+
+
+<footer>
+  <div class="dark-bg section text-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 tex-center">
+          <ul class="social-icons social-icons-small m-40px-b sm-m-20px-b">
+            <li><a class="facebook" href="#"><i class="fab fa-facebook-f"></i></a></li>
+            <li><a class="twitter" href="#"><i class="fab fa-twitter"></i></a></li>
+            <li><a class="google" href="#"><i class="fab fa-google-plus-g"></i></a></li>
+            <li><a class="linkedin" href="#"><i class="fab fa-linkedin-in"></i></a></li>
+          </ul>
+          <p class="m-0px footText color-medium-gray letter-spacing-1 font-14">All © Copyright by Work Load. All Rights Reserved.</p>
+        </div>
+        <!-- col -->
+      </div>
+      <!-- row -->
+    </div>
+    <!-- container -->
+  </div>
+  <!-- bg-dark -->
+</footer>

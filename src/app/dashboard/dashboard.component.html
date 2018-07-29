@@ -1,0 +1,178 @@
+<div class="wrapper">
+    <!-- Sidebar  -->
+     <nav id="sidebar"> 
+
+        
+      
+        <div>
+         
+            <a href="index.html">
+          <img src="../../assets/img/core-img/favicon.ico" title="" alt="">
+        </a><span> <h3 class="headingg">Work Load</h3></span> 
+        </div>
+
+        <ul class="list-unstyled components">
+            <p class="usernam">{{username}}</p>
+            <li class="active">
+                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">My Team</a>
+                
+                <ul class="collapse list-unstyled" id="homeSubmenu">
+                   
+                    <li *ngFor = "let m of teamarray">
+                        <a>{{m.name}}</a>
+                    </li>
+                 
+                </ul>
+            </li>
+        
+
+            <li>
+                <a href="#">About</a>
+            </li>
+            <li>
+                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
+                <ul class="collapse list-unstyled" id="pageSubmenu">
+                    <li>
+                        <a href="#">Page 1</a>
+                    </li>
+                    <li>
+                        <a href="#">Page 2</a>
+                    </li>
+                    <li>
+                        <a href="#">Page 3</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Portfolio</a>
+            </li>
+            <li>
+                <a href="#">Contact</a>
+            </li>
+        </ul>
+        <ul class="list-unstyled CTAs">
+            <li>
+              
+        <button (click) = "logout()" class="bt btn btn-danger">
+         <i class=" zmdi zmdi-walk"></i> Log out
+        </button>
+     
+            </li>
+            <li>
+                <!-- <a href="https://bootstrapious.com/p/bootstrap-sidebar" class="article">Back to article</a> -->
+            </li>
+        </ul>
+    </nav>
+
+    <div class="br container">
+        <div class="row">
+            <div class="col st">
+                <div data-spy="scroll" data-target="#list-example" data-offset="0" class="scrollspy-example">
+                    <ul class="list-group">
+                        <li class="list-group-item"><button class="btn btn-info btn-sm">Add Task</button></li>
+                        <li class="list-group-item" id="list-example"><b><u>New Task</u></b></li>
+                        <div *ngFor="let arr of newArray | paginate: { itemsPerPage: 8, currentPage: p }; let i = index">
+                           
+                                <li class="list-group-item" id="list-example"><span><i class="plus zmdi zmdi-plus"></i></span>{{arr.Task}}
+                                      <button class="del btn btn-danger btn-sm" (click) = "btnClicked(arr.Id)" >delete</button>
+                                </li>  
+                            </div> 
+                              <pagination-controls class="pg" (pageChange)="p = $event"></pagination-controls>        
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col bx">
+                <div class="limiter">
+                    <div class="container-login100">
+                        <div class="wrap-login100">
+
+                            <br/>
+                            <div class="panelTitle">
+                                Task Details
+
+                            </div>
+                            <hr>
+                        
+                            <form #taskform ="ngForm" (ngSubmit)="tasks(taskform.form)">
+                                <div class="form-group">
+
+                                    <input type="email" class="form-control" class="form-control" placeholder="Write a Task" #Task="ngModel"
+                                        name="Task" id="Task" type="text" [(ngModel)]="task.Task" required>
+                                    <div *ngIf=" Task.invalid  && Task.touched " class="alert alert-danger">
+                                        <div *ngIf="Task.errors.required">Please Enter a task</div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col">
+                                <div class="lab form-group">
+                                    <label for="exampleFormControlInput1">Assigned To</label>
+                                    <!-- <input type="email" class="form-control" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com"
+                                        #AssignTo="ngModel"  id="AssignTo" type="text"  required> -->
+                                    <select id="inputState" class="form-control" name="AssignTo" [(ngModel)]="task.AssignTo">
+       
+                                   <option [ngValue]="s" selected>Select any one ..</option>
+                                   <option *ngFor="let c of teamarray"  [ngValue]="c.name" >{{c.name}}</option>
+                                   </select>
+                                </div>
+                                    </div>
+                             <div class="col">
+                                <div class="lab form-group">
+                                    <label for="exampleFormControlInput1">Due Date</label>
+                                    <mat-form-field >
+                                        <input id="AssignTo" class="form-control" (focus)="picker.open()" id="exampleFormControlInput1" matInput [matDatepicker]="picker" #DueDate="ngModel" name="DueDate"
+                                            id="DueDate" type="text" [(ngModel)]="task.DueDate">
+                                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                        <mat-datepicker #picker touchUi="true"></mat-datepicker>
+                                    </mat-form-field>
+                                </div>
+                                <br/>
+                            
+                             </div>
+                              
+                                </div>
+                        
+                              <hr>
+                                <div class="form-group">
+                                    <label for="lbe exampleFormControlTextarea1">Task Description</label>
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="4"  #TaskDescription="ngModel" name="TaskDescription"
+                                        id="TaskDescription" type="text" [(ngModel)]="task.TaskDescription" required></textarea>
+                                    <br/>
+                                    <button type="submit" [disabled]="!taskform.valid" class="myButton">Submit Task</button>
+                                </div>
+                          
+                            </form>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+ 
+            
+    <footer class="footer">                
+    <div class="dark-bg section text-center">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 tex-center">
+            <ul class="social-icons social-icons-small m-40px-b sm-m-20px-b">
+                <li><a class="facebook" href="#"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a class="twitter" href="#"><i class="fab fa-twitter"></i></a></li>
+                <li><a class="google" href="#"><i class="fab fa-google-plus-g"></i></a></li>
+                <li><a class="linkedin" href="#"><i class="fab fa-linkedin-in"></i></a></li>
+              </ul>
+            <p class="m-0px footText color-medium-gray letter-spacing-1 font-14">All © Copyright by Hamza. All Rights Reserved.</p>
+          </div><!-- col -->
+        </div> <!-- row -->
+      </div> <!-- container -->
+    </div> <!-- bg-dark -->
+
+</footer>
+
+  <!-- ========== Footer End ========== -->  
